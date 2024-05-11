@@ -19,19 +19,29 @@ console.log("Código de los productos disponibles: \n1 - Taza personalizada $650
 
 do {
     let producto = parseInt(prompt("Código de los productos disponibles: \n1 - Taza personalizada $6500.\n2 - Remera personalizada $12500.\n3 - Fotos polaroid $4100."));
-    let cantidad = parseInt(prompt("Ingrese la cantidad que desea comprar de ese producto"));
+    
 
-    if (!isNaN(producto) && !isNaN(cantidad)){
+    if (!isNaN(producto)){
         switch (producto) {
             case 1:
-                precio = costoPedido(6500, cantidad);
-                break;
+let cantidad = parseInt(prompt("Ingrese la cantidad que desea comprar de ese producto"))
+if (!isNaN(cantidad)){
+precio = costoPedido(6500, cantidad);
+}
+   break;
+                
             case 2:
-                precio = costoPedido(12500, cantidad);
-                break;
+let cantidad = parseInt(prompt("Ingrese la cantidad que desea comprar de ese producto"))
+if (!isNaN(cantidad)){
+precio = costoPedido(12500, cantidad);
+}
+   break;
             case 3:
-                precio = costoPedido(4100, cantidad);
-                break;
+let cantidad = parseInt(prompt("Ingrese la cantidad que desea comprar de ese producto"))
+if (!isNaN(cantidad)){
+precio = costoPedido(4100, cantidad);
+}
+   break;
             default:
                 console.log("Código del producto incorrecto!");
                 alert("Código del producto incorrecto!");
