@@ -5,13 +5,35 @@ let opcion = "no";
 let cantidad = 0;
 
 /*Funciones*/
-function costoPedido(producto, cantidad) {
-    return producto * cantidad;
+function costoPedido(costo, cantidad) {
+    return costo * cantidad;
 }
 
 function sumarEnvio(precio) {
     let precioConEnvio = precio + envio;
     return precioConEnvio;
+}
+
+function preguntaCantidad(costo){
+    cantidad = parseInt(prompt("Ingrese la cantidad que desea comprar de ese producto"))
+                if (!isNaN(cantidad)) {
+                    precio = costoPedido(costo, cantidad);
+                    return precio;
+                }else{
+                    console.log("Error! Debe ingresar un número!");
+                    alert("Error! Debe ingresar un número!");
+                }
+}
+function preguntaEnvio(){
+    opcion = prompt("¿Es con envío? (si/no) Costo extra: $8000");
+    if (opcion.toLowerCase() === "si") {
+        precio = sumarEnvio(precio);
+    }
+}
+
+function imprimirCosto(){
+    console.log("El costo total de su pedido es de: $" + precio);
+    alert("El costo total de su pedido es de: $" + precio);
 }
 
 /* Inicio */
@@ -20,47 +42,38 @@ console.log("Código de los productos disponibles: \n1 - Taza personalizada $650
 
 do {
     let producto = parseInt(prompt("Código de los productos disponibles: \n1 - Taza personalizada $6500.\n2 - Remera personalizada $12500.\n3 - Fotos polaroid $4100."));
-    
 
-    if (!isNaN(producto)){
+
+    if (!isNaN(producto)) {
         switch (producto) {
             case 1:
-cantidad = parseInt(prompt("Ingrese la cantidad que desea comprar de ese producto"))
-if (!isNaN(cantidad)){
-precio = costoPedido(6500, cantidad);
-}
-   break;
-                
+                if(preguntaCantidad(6500)){
+                    preguntaEnvio();
+                    imprimirCosto();
+                }
+                break;
+
             case 2:
-cantidad = parseInt(prompt("Ingrese la cantidad que desea comprar de ese producto"))
-if (!isNaN(cantidad)){
-precio = costoPedido(12500, cantidad);
-}
-   break;
+                if (preguntaCantidad(12500)) {
+                    preguntaEnvio();
+                    imprimirCosto();
+                }
+                break;
             case 3:
-cantidad = parseInt(prompt("Ingrese la cantidad que desea comprar de ese producto"))
-if (!isNaN(cantidad)){
-precio = costoPedido(4100, cantidad);
-}
-   break;
+                if (preguntaCantidad(4100)) {
+                    preguntaEnvio();
+                    imprimirCosto();
+                }
+                break;
             default:
                 console.log("Código del producto incorrecto!");
                 alert("Código del producto incorrecto!");
-                continue;
+                break;
         }
 
-        opcion = prompt("¿Es con envío? (si/no) Costo extra: $8000");
-        if (opcion.toLowerCase() === "si") {
-            precio = sumarEnvio(precio);
-        }
-
-        console.log("El costo total de su pedido es de: $" + precio);
-        alert("El costo total de su pedido es de: $" + precio);
-
-    }else{
-        console.log("Código o cantidad incorrecta!");
-        alert("Código o cantidad incorrecta!");
-        continue;
+    } else {
+        console.log("Código incorrecto!");
+        alert("Código incorrecto!");
     }
 
     producto = 0;
