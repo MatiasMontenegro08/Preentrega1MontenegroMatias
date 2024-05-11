@@ -2,6 +2,7 @@
 let envio = 8000;
 let precio = 0;
 let opcion = "no";
+let cantidad = 0;
 
 /*Funciones*/
 function costoPedido(producto, cantidad) {
@@ -24,20 +25,20 @@ do {
     if (!isNaN(producto)){
         switch (producto) {
             case 1:
-let cantidad = parseInt(prompt("Ingrese la cantidad que desea comprar de ese producto"))
+cantidad = parseInt(prompt("Ingrese la cantidad que desea comprar de ese producto"))
 if (!isNaN(cantidad)){
 precio = costoPedido(6500, cantidad);
 }
    break;
                 
             case 2:
-let cantidad = parseInt(prompt("Ingrese la cantidad que desea comprar de ese producto"))
+cantidad = parseInt(prompt("Ingrese la cantidad que desea comprar de ese producto"))
 if (!isNaN(cantidad)){
 precio = costoPedido(12500, cantidad);
 }
    break;
             case 3:
-let cantidad = parseInt(prompt("Ingrese la cantidad que desea comprar de ese producto"))
+cantidad = parseInt(prompt("Ingrese la cantidad que desea comprar de ese producto"))
 if (!isNaN(cantidad)){
 precio = costoPedido(4100, cantidad);
 }
